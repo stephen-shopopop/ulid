@@ -1,0 +1,9 @@
+.vscode/
+src/
+tests/
+coverage/
+tsconfig.json
+tsconfig.browser.json
+jest.config.js
+commitlint.config.json
+Makefile

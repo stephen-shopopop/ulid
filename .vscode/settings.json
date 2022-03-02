@@ -1,0 +1,10 @@
+{
+  "prettier.enable": false,
+  "standard.enable": true,
+  "standard.autoFixOnSave": true,
+  "standard.validate": [
+    "javascript",
+    "typescript"
+  ],
+  "standard.engine": "ts-standard"
+}
