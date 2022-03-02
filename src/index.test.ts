@@ -1,11 +1,11 @@
 import { describe, expect, test } from '@jest/globals'
-import { hello } from './index'
+import { ulid } from './index'
 
-describe('[index/hello] hello()', () => {
+describe('[index/ulid] generate ulid()', () => {
   test.each`
-    string | expected
-    ${'Shopopop'} | ${'hello Shopopop'}
-  `('returns $expected when hello $string', ({ string, expected }) => {
-    expect(hello(string)).toEqual(expected)
+    timestamp | expected
+    ${Date.now()} | ${4}
+  `('returns $expected when ulid $timestamp', ({ timestamp, expected }) => {
+    expect(ulid(timestamp)).not.toEqual(expect)
   })
 })

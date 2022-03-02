@@ -1,7 +1,7 @@
 {
-  "name": "node-typescript-template",
+  "name": "ulid",
   "version": "1.2.1",
-  "description": "template typescript nodejs with ts-standard",
+  "description": "generate ulid",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "private": true,
@@ -16,13 +16,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{repository}.git"
+    "url": "git+https://github.com/stephen-shopopop/ulid.git"
   },
   "bugs": {
-    "url": "https://github.com/{repository}/issues"
+    "url": "https://github.com/stephen-shopopop/ulid/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "contributors": [
-    "stephendltg"
+    "stephen.deletang@shopopop.com"
   ],
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -39,13 +42,13 @@
     "fix": "standard-version -- --release-as minor",
     "doc": "rimraf docs && npx typedoc src/index.ts"
   },
-  "bin": {
-    "node-myapp": "./bin/www"
-  },
-  "keywords": [
-    "standard"
+  "files": [
+    "dist"
   ],
-  "author": "tech<tech@example.com>",
+  "keywords": [
+    "ULID"
+  ],
+  "author": "stephen-shopopop <stephen.deletang@shopopop.com>",
   "license": "ISC",
   "simple-git-hooks": {
     "pre-commit": "npx commitlint --edit $1 & npm run lint",
