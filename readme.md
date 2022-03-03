@@ -12,9 +12,26 @@
 
 # Generate ULID
 
+```
+  01AN4Z07BY      79KA1307SR9X4MV3
+  |----------|    |----------------|
+  Timestamp           Entropy
+    10 chars           16 chars
+    48bits             80bits
+    base32             base32
+```
+
 ## Description
 
 Generate ULID
+
+- Is compatible with UUID/GUID's
+- 1.21e+24 unique ULIDs per millisecond (1,208,925,819,614,629,174,706,176 to be exact)
+- Lexicographically sortable
+- Canonically encoded as a 26 character string, as opposed to the 36 character UUID
+- Uses Crockford's base32 for better efficiency and readability (5 bits per character)
+- Case insensitive
+- No special characters (URL safe)
 
 ## Contributing
 
