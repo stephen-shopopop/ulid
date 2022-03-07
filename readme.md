@@ -13,7 +13,7 @@
 # Generate ULID
 
 ```
-  01AN4Z07BY      79KA1307SR9X4MV3
+   01AN4Z07BY      79KA1307SR9X4MV3
   |----------|    |----------------|
   Timestamp           Entropy
     10 chars           16 chars
