@@ -22,6 +22,7 @@ export function encodeTime (timeInMs: number): string {
  * Pseudorandom number generator
  */
 export function prng (): number {
+  // random between 0 to 1 (random on 8 bits 0 -255)
   return randomBytes(1).readUInt8() / 0xff
 }
 

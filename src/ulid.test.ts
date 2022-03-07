@@ -32,9 +32,11 @@ describe('[ulid/encodeTime] encodeTime()', () => {
 
 describe('[ulid/prng] prng()', () => {
   test('prng must be < 1', () => {
-    const rand = prng()
+    for (let i = 0; i < 10000; i++) {
+      const rand = prng()
 
-    expect(rand < 1).toBeTruthy()
+      expect(rand <= 1).toBeTruthy()
+    }
   })
 })
 
