@@ -52,7 +52,7 @@ export function replaceChar (chars: string[]): string[] {
 	let [current, ...tail] = chars
 	let ret: string[]
 	
-	let indexChar = base32Alphabet.indexOf(current)
+	const indexChar = base32Alphabet.indexOf(current)
 	
 	if (indexChar >= base32AlphabetLen - 1) {
 	    const recursive = replaceChar(tail)
@@ -70,7 +70,7 @@ export function replaceChar (chars: string[]): string[] {
 }
 
 export function incrementBase32 (str: string): string {
-	let chars = str.split('').reverse()
+	const chars = str.split('').reverse()
 	
 	return replaceChar(chars).reverse().join('')
 }
@@ -89,7 +89,7 @@ export function monotonic (): Monotonic {
         lastTime = seedTimeInMs
         const newRandom = (lastRandom = encodeRandom(10))
         
-        return encodeTime(seedTimeInMs) + newRandom;
+        return encodeTime(seedTimeInMs) + newRandom
     };
 }
 
