@@ -33,6 +33,12 @@ Generate ULID
 - Case insensitive
 - No special characters (URL safe)
 
+## Installation
+
+’’’bash
+npm install @stephen-shopopop/ulid@1.1.1
+’’’
+
 ## Contributing
 
 1. npm run build -  Build library.
