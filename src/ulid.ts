@@ -79,7 +79,7 @@ export function monotonic (): Monotonic {
     let lastTime: number = 0
     let lastRandom: string
     
-    return function (seedTimeInMs: number): string {
+    return function (seedTimeInMs?: number): string {
 	    const seed = Number.isNaN(seedTimeInMs) ? Date.now() : seedTimeInMs
 	    
         if (seed <= lastTime) {
