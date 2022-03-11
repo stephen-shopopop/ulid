@@ -35,7 +35,7 @@ Generate ULID
 
 ## Installation
 
-.npmrc
+Add .npmrc in your repository
 
 ```.npmrc
 @stephen-shopopop:registry=https://npm.pkg.github.com
