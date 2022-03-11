@@ -35,9 +35,9 @@ Generate ULID
 
 ## Installation
 
-’’’bash
+```bash
 npm install @stephen-shopopop/ulid@1.1.1
-’’’
+```
 
 ## Contributing
 
