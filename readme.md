@@ -35,6 +35,12 @@ Generate ULID
 
 ## Installation
 
+.npmrc
+
+```.npmrc
+@stephen-shopopop:registry=https://npm.pkg.github.com
+```
+
 ```bash
 npm install @stephen-shopopop/ulid@1.1.1
 ```
