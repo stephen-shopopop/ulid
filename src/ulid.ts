@@ -4,7 +4,7 @@ import { randomBytes } from 'crypto'
 const base32Alphabet = '0123456789ABCDEFGHJKMNPQRSTUVWXZ' // Crockord's base32 https://datatracker.ietf.org/doc/html/rfc4648#section-7
 const base32AlphabetLen = base32Alphabet.length
 
-type Monotonic = (seedTimeInMs?: number) => string
+export type Monotonic = (seedTimeInMs?: number) => string
 
 export function encodeTime (timeInMs: number): string {
   let mod: number
@@ -80,7 +80,7 @@ export function monotonic (): Monotonic {
     let lastRandom: string
     
     return function (seedTimeInMs?: number): string {
-	    const seed = Number.isNaN(seedTimeInMs as any) ? Date.now() : seedTimeInMs
+	    const seed = isNaN(seedTimeInMs) ? Date.now() : seedTimeInMs
 	    
         if (seed <= lastTime) {
             const incrementedRandom = (lastRandom = incrementBase32(lastRandom))
