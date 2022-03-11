@@ -6,12 +6,12 @@ const base32AlphabetLen = base32Alphabet.length
 
 export type Monotonic = (seedTimeInMs?: number) => string
 
-export function encodeTime (timeInMs: number): string {
+export function encodeTime (timeInMs: number, len: number = 10): string {
   let mod: number
   let str: string = ''
 
-  // MSB len 10
-  for (let currentLen = 10; currentLen > 0; currentLen--) {
+  // MSB len
+  for (let currentLen = len; currentLen > 0; currentLen--) {
     mod = timeInMs % base32AlphabetLen
     str = base32Alphabet.charAt(mod) + str
     timeInMs = (timeInMs - mod) / base32AlphabetLen
@@ -87,10 +87,10 @@ export function monotonic (): Monotonic {
         }
         
         lastTime = seedTimeInMs
-        const newRandom = (lastRandom = encodeRandom(10))
+        const newRandom = (lastRandom = encodeRandom())
         
         return encodeTime(seedTimeInMs) + newRandom
-    };
+    }
 }
 
 export function ulid (seedTimeInMs: number = Date.now()): string {
