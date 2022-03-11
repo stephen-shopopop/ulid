@@ -46,6 +46,53 @@ export function encodeRandom (len = 16): string {
   return str
 }
 
+export function replaceChar (chars: string[]): string[] {
+	let [current, ...tail] = chars
+	let ret: string[]
+	
+	let indexChar = base32Alphabet.indexOf(current)
+	
+	if (indexChar >= base32AlphabetLen - 1) {
+	    const recursive = replaceChar(tail)
+	    
+	    current = base32Alphabet[0]
+	    
+	    ret = chars.length > 1 ? [...recursive, ...current] : recursive
+		
+	} else {
+		current = base32Alphabet[indexChar + 1]
+		ret = [...current, ...tail]
+	}
+	
+	return ret
+}
+
+export function incrementBase32 (str: string): string {
+	let chars = str.split('').reverse()
+	
+	return replaceChar(chars).reverse().join('')
+}
+
+export function monotonic () {
+    let lastTime: number = 0
+    let lastRandom: string
+    
+    return function (seedTimeInMs: number): string {
+	    const seed = Number.isNaN(seedTime) ? Date.now() : seedTime
+	    
+        if (seed <= lastTime) {
+            const incrementedRandom = (lastRandom = incrementBase32(lastRandom))
+            
+            return encodeTime(lastTime) + incrementedRandom
+        }
+        
+        lastTime = seed
+        const newRandom = (lastRandom = encodeRandom(10))
+        
+        return encodeTime(seed) + newRandom;
+    };
+}
+
 export function ulid (seedTimeInMs: number = Date.now()): string {
   return encodeTime(seedTimeInMs) + encodeRandom()
 }
