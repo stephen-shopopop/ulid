@@ -45,6 +45,14 @@ Add .npmrc in your repository
 npm install @stephen-shopopop/ulid@1.1.1
 ```
 
+## Usage
+
+```bash
+import { ulid } from "@stephen-shopopop/ulid"
+
+ulid()
+```
+
 ## Contributing
 
 1. npm run build -  Build library.
