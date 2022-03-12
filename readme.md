@@ -39,11 +39,10 @@ Generate ULID
 
 ### Installation
 
-Add .npmrc in your repository
+Add .npmrc file in your repository
 
-```.npmrc
-@stephen-shopopop:registry=https://npm.pkg.github.com
-```
+> @stephen-shopopop:registry=https://npm.pkg.github.com
+
 
 ```bash
 npm install @stephen-shopopop/ulid@1.1.1
@@ -51,10 +50,21 @@ npm install @stephen-shopopop/ulid@1.1.1
 
 ### Usage
 
-```bash
+```ts
 import { ulid } from "@stephen-shopopop/ulid"
 
-ulid()
+ulid() // 01FW7DJFPDVRRTZZ2UDEE5GW2T
+```
+
+```ts
+import { monotonic } from "@stephen-shopopop/ulid"
+
+const ulid = monotonic()
+
+ulid() // 01FWXNVK9DWNT24RR10X35F3KZ
+
+ulid(1646295334605) // 01FWXNVK9D0WNT24RR10X35F3M
+ulid(1646295334605) // 01FWXNVK9D0WNT24RR10X35F3N
 ```
 
 ## Contributing

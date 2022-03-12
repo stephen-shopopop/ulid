@@ -1,5 +1,14 @@
 import { describe, expect, test } from '@jest/globals'
-import { ulid, encodeTime, prng, randomChar, encodeRandom } from './ulid'
+import {
+  ulid,
+  encodeTime,
+  prng,
+  randomChar,
+  encodeRandom,
+  replaceChar,
+  incrementBase32,
+  monotonic
+} from './ulid'
 
 const base32Alphabet = '0123456789ABCDEFGHJKMNPQRSTUVWXZ'.split('')
 
@@ -61,5 +70,49 @@ describe('[ulid/encodeRandom] encodeRandom()', () => {
     const rand = encodeRandom(32)
 
     expect(rand.length).toEqual(32)
+  })
+})
+
+describe('[ulid/replaceChar] replaceChar()', () => {
+  test.each`
+    chars | expected
+    ${['Z']} | ${['0']}
+    ${['X', 'A']} | ${['Z', 'A']}
+    ${['Y']} | ${['0']}
+  `('returns $expected when $chars replaceChar', ({ chars, expected }) => {
+    expect(replaceChar(chars)).toEqual(expected)
+  })
+})
+
+describe('[ulid/incrementBase32] incrementBase32()', () => {
+  test.each`
+    string | expected
+    ${'Z'} | ${'0'}
+    ${'AX'} | ${'AZ'}
+    ${'Y'} | ${'0'}
+  `('returns $expected when $string incrementBase32', ({ string, expected }) => {
+    expect(incrementBase32(string)).toEqual(expected)
+  })
+})
+
+describe('[ulid/monotonic] monotonic()', () => {
+  test.each`
+    monotonic | expected
+    ${monotonic()()} | ${26}
+    ${monotonic()(1646295334605)} | ${26}
+    ${monotonic()(5)} | ${26}
+  `('returns ULID with len $expected when monotonic $monotonic', ({ monotonic, expected }) => {
+    expect(monotonic.length).toEqual(expected)
+  })
+
+  const monotonicUlid = monotonic()
+  test.each`
+    monotonic | expected
+    ${monotonicUlid(0)} | ${26}
+    ${monotonicUlid()} | ${26}
+    ${monotonicUlid(1646295334605)} | ${26}
+    ${monotonicUlid(1646295334605)} | ${26}
+  `('returns ULID with len $expected when monotonic $monotonic', ({ monotonic, expected }) => {
+    expect(monotonic.length).toEqual(expected)
   })
 })
