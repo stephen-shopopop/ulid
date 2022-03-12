@@ -33,6 +33,10 @@ Generate ULID
 - Case insensitive
 - No special characters (URL safe)
 
+### NODEJS
+
+[![Minimal node version](https://img.shields.io/static/v1?label=node&message=%3E=12&logo=node.js&color)](https://nodejs.org/about/releases/)
+
 ## Installation
 
 Add .npmrc in your repository
