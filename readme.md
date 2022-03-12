@@ -45,7 +45,7 @@ Add .npmrc file in your repository
 
 
 ```bash
-npm install @stephen-shopopop/ulid@1.1.1
+npm install @stephen-shopopop/ulid@1.2.1
 ```
 
 ### Usage
