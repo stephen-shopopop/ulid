@@ -33,11 +33,11 @@ Generate ULID
 - Case insensitive
 - No special characters (URL safe)
 
-### NODEJS
+## NODEJS
 
 [![Minimal node version](https://img.shields.io/static/v1?label=node&message=%3E=12&logo=node.js&color)](https://nodejs.org/about/releases/)
 
-## Installation
+### Installation
 
 Add .npmrc in your repository
 
@@ -49,7 +49,7 @@ Add .npmrc in your repository
 npm install @stephen-shopopop/ulid@1.1.1
 ```
 
-## Usage
+### Usage
 
 ```bash
 import { ulid } from "@stephen-shopopop/ulid"
