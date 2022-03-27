@@ -78,3 +78,11 @@ ulid(1646295334605) // 01FWXNVK9D0WNT24RR10X35F3N
 7. npm run doc - Generate html doc.
 8. npm run release - Release library
 9. npm run fix - Fix library
+
+### Package maintenance
+
+A modern cli tool that keeps your deps fresh
+
+```bash
+npx taze
+```
